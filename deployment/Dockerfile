@@ -1,10 +1,8 @@
-FROM openjdk:17
+FROM public.ecr.aws/lambda/java:11
 
 WORKDIR /app
 
-COPY target/*jar-with-dependencies.jar app.jar
-COPY deployment/entrypoint.sh .
-RUN chmod +x entrypoint.sh
+COPY target/classes /var/task/
+COPY target/dependency/* /var/task/lib/
 
-SHELL ["/bin/bash", "-c"]
-CMD ./entrypoint.sh
+CMD ["com.example.helloworld.HelloWorldLambda::handleRequest"]

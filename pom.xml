@@ -9,7 +9,7 @@
     <groupId>com.example.helloworld</groupId>
 
     <properties>
-        <javaRelease>17</javaRelease>
+        <javaRelease>11</javaRelease>
         <javaVersion>1.${javaRelease}</javaVersion>
     </properties>
 
@@ -41,6 +41,23 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- configure the plugin here -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

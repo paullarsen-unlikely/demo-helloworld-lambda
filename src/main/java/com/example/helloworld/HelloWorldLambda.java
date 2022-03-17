@@ -1,4 +1,4 @@
-package ai.unlikely.helloworld;
+package com.example.helloworld;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
